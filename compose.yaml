@@ -1,0 +1,11 @@
+version: '3'
+name: "aeya-acceptor"
+services:
+  aeya-acceptor:
+    build:
+      .
+    ports:
+      - 1515:1515
+    volumes:
+      - /srv/hdd4t/filebrowser/filehosting:/app/filehosting
+    restart: 'unless-stopped'
