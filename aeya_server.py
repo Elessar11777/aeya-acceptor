@@ -116,8 +116,10 @@ def upload():
             gmic_interpreter.run("rotate 180", gmic_image_Mask)
             data["Images"]["B"] = gmic_image_B.to_numpy()
             data["Images"]["P"] = gmic_image_P.to_numpy()
+            data["Images"]["Mask"] = gmic_image_Mask.to_numpy()
             data["Images"]["B"] = numpy.squeeze(data["Images"]["B"], axis=2)
             data["Images"]["P"] = numpy.squeeze(data["Images"]["P"], axis=2)
+            data["Images"]["Mask"] = numpy.squeeze(data["Images"]["Mask"], axis=2)
 
         else:
             string_image_b = None
