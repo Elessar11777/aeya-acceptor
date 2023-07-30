@@ -11,6 +11,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+
 # Creating GMIC interpreter object
 gmic_interpreter = gmic.Gmic()
 app = flask.Flask(__name__)
@@ -83,8 +84,6 @@ def answer(data, b_link, p_link):
 @app.route('/upload/', methods=['POST'])
 def upload():
     data = flask.request.get_json()
-    print(type(data["Images"]))
-    print(type(data["Images"]["B"]))
     if not data:
         return "No JSON data provided", 400
     else:
@@ -118,17 +117,6 @@ def upload():
             data["Images"]["B"] = numpy.squeeze(data["Images"]["B"], axis=2)
             data["Images"]["P"] = numpy.squeeze(data["Images"]["P"], axis=2)
 
-            # resized_b_numpy = gmic_image_list[0].to_numpy()
-            # resized_b_numpy_sqieezed = numpy.squeeze(resized_b_numpy)
-            # byte_image = resized_b_numpy_sqieezed.tobytes()
-            # b64_image = base64.b64encode(byte_image)
-            # string_image_b = b64_image.decode('utf-8')
-            #
-            # resized_p_numpy = gmic_image_list[1].to_numpy()
-            # resized_p_numpy_sqieezed = numpy.squeeze(resized_p_numpy)
-            # byte_image = resized_p_numpy_sqieezed.tobytes()
-            # b64_image = base64.b64encode(byte_image)
-            # string_image_p = b64_image.decode('utf-8')
         else:
             string_image_b = None
             string_image_p = None
