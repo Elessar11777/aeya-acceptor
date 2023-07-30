@@ -3,6 +3,8 @@ services:
   aeya-acceptor:
     build:
       .
+    image:
+      aeya-acceptor
     ports:
       - 1515:1515
     volumes:
