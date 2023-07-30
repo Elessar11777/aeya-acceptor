@@ -113,7 +113,7 @@ def upload():
 
             gmic_interpreter.run(f"{data['Gmic']}", gmic_image_B)
             gmic_interpreter.run(f"{data['Gmic']}", gmic_image_P)
-            gmic_interpreter.run("rotate 180", gmic_image_Mask)
+            gmic_interpreter.run("rotate 90", gmic_image_Mask)
             data["Images"]["B"] = gmic_image_B.to_numpy()
             data["Images"]["P"] = gmic_image_P.to_numpy()
             data["Images"]["Mask"] = gmic_image_Mask.to_numpy()
