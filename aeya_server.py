@@ -109,9 +109,11 @@ def upload():
             # gmic_image_list.append(gmic.GmicImage.from_numpy(data["Images"]["P"]))
             gmic_image_B = gmic.GmicImage.from_numpy(data["Images"]["B"])
             gmic_image_P = gmic.GmicImage.from_numpy(data["Images"]["P"])
+            gmic_image_Mask = gmic.GmicImage.from_numpy(data["Images"]["Mask"])
 
             gmic_interpreter.run(f"{data['Gmic']}", gmic_image_B)
             gmic_interpreter.run(f"{data['Gmic']}", gmic_image_P)
+            gmic_interpreter.run("rotate 180", gmic_image_Mask)
             data["Images"]["B"] = gmic_image_B.to_numpy()
             data["Images"]["P"] = gmic_image_P.to_numpy()
             data["Images"]["B"] = numpy.squeeze(data["Images"]["B"], axis=2)

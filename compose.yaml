@@ -10,7 +10,3 @@ services:
     volumes:
       - /srv/hdd4t/filebrowser/filehosting:/app/filehosting
     restart: 'unless-stopped'
-    environment:
-      - DB_USER=your_username
-      - DB_PASSWORD=your_password
-      - DB_HOST=localhost
